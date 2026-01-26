@@ -50,4 +50,30 @@ layout: default
       </div>
     </div>
   </div>
+
+  <!-- All Seasons -->
+  <section class="section bg-[var(--color-surface)]">
+    <div class="container">
+      <h2 class="text-center mb-8">Browse All Seasons</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        {% assign sorted_seasons = site.seasons | sort: 'season' | reverse %}
+        {% for season in sorted_seasons %}
+        <a href="{{ season.url | relative_url }}" class="card group {% if season.season == page.season %}ring-2 ring-[var(--color-primary)]{% endif %}">
+          <div class="card-body text-center">
+            <span class="badge {% if season.season == site.site.current_season %}badge-primary{% else %}badge-secondary{% endif %} mb-2">
+              {% if season.season == site.site.current_season %}Current{% else %}Archive{% endif %}
+            </span>
+            <h3 class="card-title">{{ season.season }}</h3>
+            {% if season.game_name %}
+            <p class="text-sm text-[var(--color-text-muted)]">{{ season.game_name }}</p>
+            {% endif %}
+            {% if season.robot_name %}
+            <p class="text-sm font-medium">{{ season.robot_name }}</p>
+            {% endif %}
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
 </article>

@@ -5,8 +5,8 @@
 /* CSS Custom Properties for Theme - Official FTC Colors */
 :root {
   /* FTC Color Palette */
-  --color-primary: #007bff;    /* FTC Blue */
-  --color-primary-highlight: #0069d9;
+  --color-primary: #003974;    /* Deep Blue */
+  --color-primary-highlight: #002855;
   --color-secondary: #F57E25;  /* FIRST Orange */
   --color-secondary-highlight: #d96a1f;
   --color-success: #28a745;    /* Success green */
@@ -20,8 +20,8 @@
   --color-text: #212529;       /* Dark text */
   --color-text-muted: #6c757d; /* Muted gray */
   --color-border: #dee2e6;     /* Light border */
-  --color-link: #007bff;       /* Blue link */
-  --color-link-hover: #0056b3;
+  --color-link: #003974;       /* Blue link */
+  --color-link-hover: #002855;
 }
 
 .dark {

@@ -17,8 +17,8 @@ module.exports = {
       colors: {
         // Official FTC Color Palette
         primary: {
-          DEFAULT: '#007bff', // FTC Blue
-          light: '#3d9bff',
+          DEFAULT: '#003974', // FTC Blue
+          light: '#6cc2c9',
           dark: '#0069d9',
           highlight: '#0056b3',
         },

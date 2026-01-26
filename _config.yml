@@ -1,13 +1,13 @@
 # Site settings
-title: "Team Name Robotics"
-description: "FTC/FRC Robotics Team Portfolio"
+title: "PitCrew Robotics"
+description: "FTC/FRC Robotics Team Portfolio Website builder"
 url: ""
 baseurl: ""
 
 # Team configuration
 site:
-  team_name: "Team Name"
-  team_number: "00000"
+  team_name: "PitCrew"
+  team_number: "271828"
   program: "FTC"  # FTC or FRC
   current_season: "2025-2026"
   logo: "/assets/images/placeholder.svg"
@@ -15,7 +15,7 @@ site:
 # Theme configuration - Official FTC Colors
 theme:
   colors:
-    primary: "#007bff"    # FTC Blue
+    primary: "#003974"    # Deep Blue
     secondary: "#F57E25"  # FIRST Orange (brand color)
     success: "#28a745"    # Success green
     info: "#17a2b8"       # Info teal
@@ -73,7 +73,7 @@ collections:
     permalink: /news/:year/:month/:day/:title/
   seasons:
     output: true
-    permalink: /season/:path/
+    permalink: /seasons/:path/
   docs:
     output: true
     permalink: /docs/:path/
@@ -91,11 +91,13 @@ defaults:
     values:
       layout: "page"
   - scope:
-      path: "seasons"
+      path: ""
+      type: "seasons"
     values:
       layout: "season"
   - scope:
-      path: "docs"
+      path: ""
+      type: "docs"
     values:
       layout: "docs"
 
@@ -110,6 +112,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-redirect-from
 
 # Exclude from build
 exclude:
