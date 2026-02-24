@@ -1,14 +1,14 @@
 # Site settings
-title: "PitCrew Robotics"
-description: "https://github.com/braineatingmachines/pitcrew"
+title: "Cosmic Goose 8902"
+description: "Hi! We're Cosmic Goose, an FTC team from Glen Rock Public Schools. Established in 2014,  12th year in FIRST"
 url: ""
 baseurl: ""
 
 # Team configuration
 site:
-  team_name: "PitCrew"
-  team_number: "271828"
-  program: "FTC"  # FTC or FRC
+  team_name: "Cosmic Goose"
+  team_number: "8902"
+  program: "FTC"  
   current_season: "2025-2026"
   logo: "/assets/images/placeholder.svg"
 
