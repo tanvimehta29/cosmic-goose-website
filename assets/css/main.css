@@ -5,11 +5,11 @@
 /* CSS Custom Properties for Theme - Official FTC Colors */
 :root {
   /* FTC Color Palette */
-  --color-primary: #003974;    /* Deep Blue */
+  --color-primary: #8430ef;    /* Deep Blue */
   --color-primary-highlight: #002855;
-  --color-secondary: #F57E25;  /* FIRST Orange */
+  --color-secondary: #792e9d;  /* FIRST Orange */
   --color-secondary-highlight: #d96a1f;
-  --color-success: #28a745;    /* Success green */
+  --color-success: #b447d4;    /* Success green */
   --color-info: #17a2b8;       /* Info teal */
   --color-warning: #f0b37e;    /* Warning */
   --color-danger: #dc3545;     /* Danger red */
