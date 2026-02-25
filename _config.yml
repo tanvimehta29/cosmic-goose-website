@@ -55,10 +55,10 @@ navigation:
 # Social links
 socials:
   instagram: "https://www.instagram.com/cosmicgoose8902?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-  github: "https://github.com/teamrobotics"
-  youtube: "https://youtube.com/@teamrobotics"
-  twitter: "https://twitter.com/teamrobotics"
-  email: "team@example.com"
+#  github: "https://github.com/teamrobotics"
+#  youtube: "https://youtube.com/@teamrobotics"
+#  twitter: "https://twitter.com/teamrobotics"
+#  email: "team@example.com"
 
 # Fundraising/Donations
 fundraising:
