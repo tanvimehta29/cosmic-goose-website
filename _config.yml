@@ -1,6 +1,6 @@
 # Site settings
 title: "Cosmic Goose 8902"
-description: "Hi! We're Cosmic Goose, an FTC team from Glen Rock Public Schools. Established in 2014,  12th year in FIRST"
+description: "Hi! We're Cosmic Goose, an FTC team from Glen Rock Public Schools. Established in 2014, our mission is to enthuse people about STEM to our local community, as well as assist others!"
 url: ""
 baseurl: ""
 
@@ -10,14 +10,14 @@ site:
   team_number: "8902"
   program: "FTC"  
   current_season: "2025-2026"
-  logo: "/assets/images/placeholder.svg"
+  logo: "/assets/images/goose-logo.jpg"
 
 # Theme configuration - Official FTC Colors
 theme:
   colors:
-    primary: "#003974"    # Deep Blue
-    secondary: "#F57E25"  # FIRST Orange (brand color)
-    success: "#28a745"    # Success green
+    primary: "#8430ef"    # Deep Blue
+    secondary: "##792e9d"  # FIRST Orange (brand color)
+    success: "#b447d4"    # Success green
     info: "#17a2b8"       # Info teal
     warning: "#f0b37e"    # Warning orange
     danger: "#dc3545"     # Danger red
@@ -54,7 +54,7 @@ navigation:
 
 # Social links
 socials:
-  instagram: "https://instagram.com/teamrobotics"
+  instagram: "https://www.instagram.com/cosmicgoose8902?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
   github: "https://github.com/teamrobotics"
   youtube: "https://youtube.com/@teamrobotics"
   twitter: "https://twitter.com/teamrobotics"

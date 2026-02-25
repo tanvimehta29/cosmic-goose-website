@@ -1,37 +1,37 @@
-- name: Anya Sharma
-  role: Team Captain
+- name: Joseph
+  role: Progamming Captain
   grade: 12
   graduation_year: 2026
-  bio: Passionate about strategic team management and ensuring the robot consistently meets competition goals. Led the team to state championship last year.
-  image: /assets/images/placeholder.svg
+  bio: i am yoo
+  image: /assets/images/JO.png
   skills:
-    - Leadership
-    - Strategic Planning
-    - Public Speaking
+    - Java 
+    - does other stuff too
 
-- name: Marcus Chen
-  role: Build Lead
-  grade: 11
-  graduation_year: 2027
-  bio: Specializes in constructing robust mechanical designs and ensuring the robot's structural integrity. Expert in 3D printing and CNC machining.
-  image: /assets/images/placeholder.svg
+- name: Tamara
+  role: Mechanical Captain
+  grade: 12
+  graduation_year: 2026
+  bio: i do stuff
+  image: /assets/images/TAMARA.png
   skills:
-    - Fabrication
+    - CAD
     - 3D Printing
-    - Mechanical Design
+    - stuff
 
-- name: Sofia Rodriguez
-  role: Programming Lead
+
+- name: Sara
+  role: Outreach Captain
   grade: 11
   graduation_year: 2027
-  bio: Develops sophisticated control algorithms and optimizes robot performance. Created our award-winning autonomous routines.
-  image: /assets/images/placeholder.svg
+  bio: i also do stuff
+  image: /assets/images/SARA.png
   skills:
-    - Java
-    - Python
-    - Computer Vision
+    - Event Planning
+    - Social Media
+    - yapping
 
-- name: James Wilson
+- name: Noreen
   role: Electrical Lead
   grade: 10
   graduation_year: 2028
@@ -42,46 +42,42 @@
     - Circuit Design
     - Sensors
 
-- name: Emily Foster
-  role: Outreach Lead
-  grade: 11
-  graduation_year: 2027
-  bio: Leads community engagement efforts and manages sponsorship relationships. Coordinates all STEM outreach events.
-  image: /assets/images/placeholder.svg
-  skills:
-    - Event Planning
-    - Social Media
-    - Marketing
-
-- name: Ryan Park
-  role: Driver
-  grade: 10
-  graduation_year: 2028
-  bio: Primary robot operator with exceptional hand-eye coordination. Practices daily to ensure precise control during matches.
-  image: /assets/images/placeholder.svg
-  skills:
-    - Precision Control
-    - Quick Thinking
-    - Strategy
-
-- name: Grace Kim
-  role: CAD Lead
+- name: Kakeru
+  role: Mechanical Officer
   grade: 12
   graduation_year: 2026
-  bio: Creates detailed 3D models and technical drawings. Manages version control for all design files.
+  bio: stuff
   image: /assets/images/placeholder.svg
   skills:
-    - SolidWorks
-    - Onshape
-    - Technical Drawing
+    - CAD
+    - 3D Printing
 
-- name: Alex Thompson
-  role: Member
+- name: Noreen
+  role: Mechanical Officer
+  grade: 11
+  graduation_year: 2027
+  bio: stuff
+  image: /assets/images/placeholder.svg
+  skills:
+    - 3D Printing
+    - CAD
+    - cant find the cheetos
+
+- name: Dima
+  role: Programming Officer
+  grade: 10
+  graduation_year: 2028
+  bio: stuff
+  image: /assets/images/placeholder.svg
+  skills:
+    - i do stuff
+
+- name: Tanvi
+  role: Outreach Officer
   grade: 9
   graduation_year: 2029
-  bio: Eager first-year member learning all aspects of robotics. Shows exceptional promise in programming and mechanical work.
+  bio: OMG ITS ME
   image: /assets/images/placeholder.svg
   skills:
-    - Problem Solving
-    - Teamwork
-    - Electronics
+    - yap
+
