@@ -16,7 +16,7 @@ site:
 theme:
   colors:
     primary: "#8430ef"    # Deep Blue
-    secondary: "##792e9d"  # FIRST Orange (brand color)
+    secondary: "#792e9d"  # FIRST Orange (brand color)
     success: "#b447d4"    # Success green
     info: "#17a2b8"       # Info teal
     warning: "#f0b37e"    # Warning orange
