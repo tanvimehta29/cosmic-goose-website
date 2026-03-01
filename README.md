@@ -26,10 +26,11 @@ A free, open-source website template for robotics teams. Get your team's profess
   - [Events](#adding-events)
   - [Blog Posts](#writing-blog-posts)
   - [Pages](#editing-pages)
-  - [Logo & Photos](#adding-your-logo)
+  - [Photos & Logo](#adding-photos)
 - [Season Pages](#updating-your-season-page)
 - [Advanced Features](#advanced-features)
   - [Custom Colors](#custom-colors)
+  - [Hero Background Image](#hero-background-image)
   - [Feature Flags](#disabling-features)
   - [3D Robot Viewer](#3d-robot-viewer)
 - [Local Development](#local-development-optional)
@@ -336,34 +337,24 @@ Each main page is a Markdown file — click it on GitHub, hit the pencil icon, a
 | `handbook.md` | Team handbook |
 | `judge-mode.md` | Judge-friendly summary |
 
-### Adding Your Logo
+### Adding Photos
 
-1. Export your logo as PNG (recommended: 200×200 px)
-2. Upload to `assets/images/` in your repository
-3. Reference it in `_config.yml`:
+Upload images to the appropriate subfolder and reference them by path:
 
-```yaml
-site:
-  logo: "/assets/images/logo.png"
-```
+| What | Folder | Used in |
+|------|--------|---------|
+| Team member photos | `assets/images/team/` | `_data/team.yml` → `image:` |
+| Sponsor logos | `assets/images/sponsors/` | `_data/sponsors.yml` → `logo:` |
+| Season photos / robot / gallery | `assets/images/seasons/YYYY-YYYY/` | Season front matter → `hero_image:` |
+| Site logo | `assets/images/` | `_config.yml` → `site.logo:` |
 
-### Adding Team Photos
-
-1. Upload photos to `assets/images/team/`
-2. Reference them in `_data/team.yml`:
-
-```yaml
-- name: Sarah Chen
-  image: /assets/images/team/sarah.jpg
-```
-
-**Photo tips:** Square crops work best · keep files under 500 KB · JPG for photos, PNG for logos.
+**Photo tips:** Square crops work best for team photos · landscape (16:9+) works best for hero images · keep files under 500 KB · JPG for photos, PNG for logos.
 
 ---
 
 ## Updating Your Season Page
 
-Each season has its own page at `seasons/YYYY-YYYY/index.md`:
+Each season has its own file at `_seasons/YYYY-YYYY.md`:
 
 ```markdown
 ---
@@ -372,7 +363,7 @@ title: "2025-2026 Season"
 season: "2025-2026"
 game_name: "INTO THE DEEP"
 robot_name: "Phoenix"
-permalink: /seasons/2025-2026/
+# hero_image: /assets/images/seasons/2025-2026/robot.jpg  # Optional: replaces hero gradient with a photo
 ---
 
 ## Robot Overview
@@ -390,7 +381,7 @@ Phoenix features mecanum wheels, dual-stage linear slides, and a compliant-wheel
 This season we've reached 400+ students through 6 STEM workshops and 3 library events.
 ```
 
-To archive last season, leave its page in place at `seasons/2024-2025/index.md` — it will appear automatically in the archive.
+To archive last season, leave its file in place at `_seasons/2024-2025.md` — it will appear automatically in the archive.
 
 ---
 
@@ -422,17 +413,46 @@ theme:
 
 All components reference these variables — never hardcoded values — so a single edit propagates everywhere. The [Setup Wizard](#option-a-setup-wizard-recommended) includes a live color preview that shows exactly how your choices look before you download.
 
+### Hero Background Image
+
+The hero banner at the top of every page uses a color gradient by default. You can replace it with a photo — site-wide or per-season.
+
+**Site-wide** — applies to every page unless a season overrides it:
+
+```yaml
+# _config.yml
+site:
+  hero_image: "/assets/images/hero.jpg"
+```
+
+**Per-season** — each season can show its own robot photo. Add `hero_image` to the season's front matter:
+
+```yaml
+# _seasons/2025-2026.md
+---
+layout: season
+season: "2025-2026"
+hero_image: /assets/images/seasons/2025-2026/robot.jpg
+---
+```
+
+The season-level setting takes priority over the site-wide one. If neither is set, the gradient is shown.
+
+**Photo tips:** Landscape orientation (16:9 or wider) works best · keep files under 1 MB · a dark overlay is applied automatically so white text remains readable. Store season photos in `assets/images/seasons/YYYY-YYYY/`.
+
+---
+
 ### Disabling Features
 
 ```yaml
 features:
   blog: true
   docs: true
-  cad_viewer: false       # 3D model viewer
-  circuit_viewer: false   # Electrical schematic viewer
+  cad_viewer: false           # 3D model viewer
+  circuit_viewer: false       # Electrical schematic viewer
   search: true
   alumni_auto_archive: true
-  accessibility_toggle: true
+  accessibility_toggle: false # Accessibility mode toggle (disabled by default)
 ```
 
 Disabled features are not built and won't appear in navigation.
@@ -517,14 +537,19 @@ pitcrew/
 ├── _layouts/             #    Page templates
 ├── _includes/            #    Reusable components
 ├── assets/
-│   ├── images/           # ⭐ Your images and logos
-│   ├── models/           #    3D robot models (GLTF/GLB)
-│   ├── css/              #    Stylesheets
-│   └── js/               #    JavaScript
-├── _docs/                # ⭐ Documentation pages
-├── seasons/              # ⭐ Season-specific pages
-│   ├── 2025-2026/
-│   └── 2024-2025/
+│   ├── images/                  # ⭐ Your images and logos
+│   │   ├── team/                #    Team member photos
+│   │   ├── sponsors/            #    Sponsor logos
+│   │   └── seasons/             #    Season photos (robot, gallery, hero)
+│   │       ├── 2025-2026/
+│   │       └── 2024-2025/
+│   ├── models/                  #    3D robot models (GLTF/GLB)
+│   ├── css/                     #    Stylesheets
+│   └── js/                      #    JavaScript
+├── _docs/                       # ⭐ Documentation pages
+├── _seasons/                    # ⭐ Season-specific pages
+│   ├── 2025-2026.md
+│   └── 2024-2025.md
 ├── wizard.md             #    Setup wizard entry point (/wizard/)
 ├── .github/workflows/    #    Automated deployment
 ├── index.md              # ⭐ Home page
