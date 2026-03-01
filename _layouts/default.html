@@ -59,5 +59,18 @@
   {% include footer.html %}
 
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+
+  {% if site.startup_wizard %}
+  <script>
+    // Redirect first-time visitors to the setup wizard
+    (function() {
+      var done   = localStorage.getItem('pitcrew_wizard_done');
+      var onWiz  = window.location.pathname.replace(/\/$/, '') === '{{ "/wizard" | relative_url }}';
+      if (!done && !onWiz) {
+        window.location.replace('{{ "/wizard/" | relative_url }}');
+      }
+    })();
+  </script>
+  {% endif %}
 </body>
 </html>

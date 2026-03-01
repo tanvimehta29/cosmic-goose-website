@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setup Wizard | {{ site.title }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Color tokens from _config.yml ── */
+    :root {
+      --p:      {{ site.theme.colors.primary }};
+      --ph:     {{ site.theme.colors.primary_highlight }};
+      --pd:     {{ site.theme.colors.primary_darkest }};
+      --s:      {{ site.theme.colors.secondary }};
+      --sh:     {{ site.theme.colors.secondary_highlight }};
+      --sg:     {{ site.theme.colors.secondary | append: '33' }};
+      --ok:     {{ site.theme.colors.success }};
+      --info:   {{ site.theme.colors.info }};
+      --warn:   {{ site.theme.colors.warning }};
+      --bad:    {{ site.theme.colors.danger }};
+
+      /* light-mode surfaces */
+      --bg:     #ffffff;
+      --surf:   #f8f9fa;
+      --text:   #212529;
+      --muted:  #6c757d;
+      --border: #dee2e6;
+      --link:   var(--p);
+    }
+
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html   { font-family: 'Lato', 'Inter', system-ui, sans-serif; font-size: 16px; line-height: 1.6; }
+    body   { background: var(--bg); color: var(--text); min-height: 100vh; }
+    a      { color: var(--link); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+    code   { font-family: 'SFMono-Regular', Menlo, monospace; background: var(--surf);
+             padding: .1rem .35rem; border-radius: .25rem; font-size: .875em; }
+    strong { font-weight: 700; }
+    ul, ol { padding-left: 1.5rem; }
+    li     { margin-bottom: .3rem; }
+    h1     { font-size: 2rem; font-weight: 900; line-height: 1.2; color: var(--text); }
+    h2     { font-size: 1.4rem; font-weight: 700; line-height: 1.2; color: var(--text); margin-bottom: .2rem; }
+    h3     { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin-bottom: .75rem; }
+    p      { margin-bottom: .75rem; }
+    select { appearance: none; }
+
+    /* ── Layout ── */
+    #wizard-app    { display: flex; flex-direction: column; min-height: 100vh; }
+    #wizard-main   { flex: 1; }
+    #wizard-content{ max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+    /* ── Header ── */
+    #wizard-header {
+      background: var(--p);
+      color: #fff;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.2);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .header-inner  { max-width: 780px; margin: 0 auto; }
+    .header-top    { display: flex; justify-content: space-between; align-items: center; margin-bottom: .6rem; }
+    .wizard-brand  { font-size: 1.15rem; font-weight: 900; }
+    .return-link   { font-size: .85rem; color: rgba(255,255,255,.75); text-decoration: none; }
+    .return-link:hover { color: #fff; }
+    .progress-meta { display: flex; justify-content: space-between; font-size: .78rem; opacity: .85; margin-bottom: .3rem; }
+    .progress-bar  { background: rgba(255,255,255,.25); border-radius: 999px; height: 6px; }
+    #progress-fill { background: var(--s); height: 6px; border-radius: 999px; transition: width .4s ease; width: 0%; }
+
+    /* ── Footer ── */
+    #wizard-footer {
+      border-top: 1px solid var(--border);
+      background: var(--surf);
+      padding: .875rem 1.5rem;
+      box-shadow: 0 -2px 8px rgba(0,0,0,.05);
+      position: sticky; bottom: 0; z-index: 100;
+    }
+    .footer-inner { max-width: 780px; margin: 0 auto; display: flex; align-items: center; gap: 1rem; }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: .6rem 1.2rem; font-family: inherit; font-size: .9375rem; font-weight: 700;
+      border-radius: .375rem; border: none; cursor: pointer; text-decoration: none;
+      transition: background .15s, color .15s, border-color .15s;
+      line-height: 1.5;
+    }
+    .btn:hover { text-decoration: none; }
+    .btn-primary   { background: var(--p);   color: #fff; }
+    .btn-primary:hover  { background: var(--ph); color: #fff; }
+    .btn-secondary { background: var(--s);   color: #fff; }
+    .btn-secondary:hover{ background: var(--sh); color: #fff; }
+    .btn-success   { background: var(--ok);  color: #fff; }
+    .btn-danger    { background: var(--bad); color: #fff; }
+    .btn-danger:hover   { background: #bb2d3b; color: #fff; }
+    .btn-outline   {
+      background: transparent; color: var(--p);
+      border: 2px solid var(--p);
+    }
+    .btn-outline:hover { background: var(--p); color: #fff; }
+    .btn-outline-sm {
+      background: transparent; color: var(--p); border: 1.5px solid var(--p);
+      padding: .3rem .7rem; font-size: .8rem; font-weight: 700;
+      border-radius: .375rem; cursor: pointer; font-family: inherit;
+      transition: background .15s, color .15s;
+    }
+    .btn-outline-sm:hover { background: var(--p); color: #fff; }
+    .btn-danger-sm {
+      background: transparent; color: var(--bad); border: 1.5px solid var(--bad);
+      padding: .3rem .7rem; font-size: .8rem; font-weight: 700;
+      border-radius: .375rem; cursor: pointer; font-family: inherit;
+      transition: background .15s, color .15s;
+    }
+    .btn-danger-sm:hover { background: var(--bad); color: #fff; }
+    #btn-skip { background: none; border: none; color: var(--muted); font-size: .875rem; cursor: pointer; font-family: inherit; }
+    #btn-skip:hover { color: var(--text); text-decoration: underline; }
+
+    /* ── Badges ── */
+    .badge {
+      display: inline-flex; align-items: center;
+      padding: .2rem .65rem; font-size: .72rem; font-weight: 700;
+      border-radius: 999px;
+    }
+    .badge-primary   { background: rgba(0,57,116,.12);   color: var(--p);   }
+    .badge-secondary { background: rgba(245,126,37,.15);  color: var(--sh);  }
+    .badge-success   { background: rgba(40,167,69,.15);   color: #228e3b;    }
+    .badge-info      { background: rgba(23,162,184,.15);  color: #148a9c;    }
+    .badge-warning   { background: rgba(240,179,126,.2);  color: #a67a4a;    }
+    .badge-danger    { background: rgba(220,53,69,.15);   color: #bb2d3b;    }
+
+    /* ── Form elements ── */
+    .input {
+      width: 100%; padding: .575rem .9rem; font-family: inherit; font-size: 1rem;
+      color: var(--text); background: var(--bg); border: 1px solid var(--border);
+      border-radius: .5rem; transition: border-color .15s, box-shadow .15s;
+    }
+    .input:focus {
+      outline: none; border-color: var(--p);
+      box-shadow: 0 0 0 3px rgba(0,57,116,.12);
+    }
+    select.input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right .75rem center; padding-right: 2.5rem; }
+
+    .wiz-field         { margin-bottom: 1.1rem; }
+    .wiz-field label   { display: block; font-weight: 700; font-size: .875rem; margin-bottom: .35rem; }
+    .wiz-grid-2        { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .wiz-grid-3        { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+    @media(max-width:600px){ .wiz-grid-2, .wiz-grid-3 { grid-template-columns: 1fr; } }
+
+    /* ── Toggle switch ── */
+    .wiz-toggle {
+      display: flex; align-items: flex-start; gap: .75rem;
+      padding: .7rem 0; border-bottom: 1px solid var(--border);
+    }
+    .wiz-toggle:last-child { border-bottom: none; }
+    .toggle-label { font-weight: 700; font-size: .9375rem; }
+    .toggle-desc  { font-size: .8rem; color: var(--muted); margin-top: .1rem; }
+    .toggle-switch { position: relative; display: inline-flex; width: 42px; height: 24px; flex-shrink: 0; margin-top: 2px; }
+    .toggle-switch input { opacity: 0; width: 0; height: 0; position: absolute; }
+    .toggle-slider {
+      position: absolute; inset: 0; background: var(--border);
+      border-radius: 24px; transition: background .2s; cursor: pointer;
+    }
+    .toggle-slider::before {
+      content: ''; position: absolute; width: 18px; height: 18px;
+      background: #fff; border-radius: 50%; left: 3px; top: 3px; transition: transform .2s;
+    }
+    .toggle-switch input:checked ~ .toggle-slider             { background: var(--p); }
+    .toggle-switch input:checked ~ .toggle-slider::before     { transform: translateX(18px); }
+
+    /* ── Radio group ── */
+    .wiz-radio-group { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: .35rem; }
+    .wiz-radio { display: flex; align-items: center; gap: .4rem; cursor: pointer; font-weight: 400; }
+
+    /* ── Color pickers ── */
+    .wiz-color-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    @media(max-width:500px){ .wiz-color-grid { grid-template-columns: 1fr; } }
+    .wiz-color-item label { display: block; font-weight: 700; font-size: .875rem; margin-bottom: .2rem; }
+    .color-hint       { font-size: .8rem; color: var(--muted); margin-bottom: .5rem; }
+    .color-picker-row { display: flex; align-items: center; gap: .5rem; }
+    .color-picker {
+      width: 44px; height: 44px; border: 2px solid var(--border); border-radius: 8px;
+      cursor: pointer; padding: 2px; background: none; flex-shrink: 0;
+    }
+    .color-hex-input { font-family: 'SFMono-Regular', Menlo, monospace; font-size: .875rem; }
+
+    /* ── Live preview ── */
+    .wiz-preview-box  { border: 1px solid var(--border); border-radius: .75rem; overflow: hidden; margin-top: 1.5rem; }
+    .preview-nav      { background: var(--p); color: #fff; padding: .75rem 1rem; display: flex; justify-content: space-between; align-items: center; }
+    .preview-nav-link { color: rgba(255,255,255,.85); font-size: .875rem; padding: .25rem .5rem; border-radius: 4px; }
+    .preview-body     { padding: 1rem; display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; background: var(--bg); }
+
+    /* ── Info / alert boxes ── */
+    .wiz-info-box {
+      background: rgba(23,162,184,.08); border: 1px solid rgba(23,162,184,.25);
+      border-radius: .5rem; padding: 1rem 1.25rem; font-size: .9rem;
+    }
+    .wiz-info-box ul { margin: .35rem 0 0; }
+
+    /* ── Section groups ── */
+    .wiz-section-group { border: 1px solid var(--border); border-radius: .75rem; padding: 1.25rem; }
+
+    /* ── Step heading ── */
+    .step-desc { color: var(--muted); margin-bottom: 1.5rem; }
+
+    /* ── Nav editor ── */
+    .nav-item-row { display: flex; align-items: center; gap: .5rem; margin-bottom: .5rem; }
+    .nav-order-btns { display: flex; flex-direction: column; gap: 2px; }
+    .nav-order-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 24px; height: 20px; border: 1px solid var(--border); border-radius: 4px;
+      background: var(--surf); cursor: pointer; font-size: .65rem; color: var(--muted);
+      font-family: inherit; transition: background .12s, color .12s;
+    }
+    .nav-order-btn:hover { background: var(--p); color: #fff; border-color: var(--p); }
+    .nav-title-input { width: 130px; flex-shrink: 0; }
+    .nav-url-input   { flex: 1; }
+    .btn-icon-danger {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 30px; height: 30px; border-radius: 6px; border: none; cursor: pointer;
+      font-size: .95rem; flex-shrink: 0; background: rgba(220,53,69,.12); color: var(--bad);
+      font-family: inherit; transition: background .12s, color .12s;
+    }
+    .btn-icon-danger:hover { background: var(--bad); color: #fff; }
+
+    /* ── CRUD list cards ── */
+    .list-card {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: .8rem 1rem; border: 1px solid var(--border); border-radius: .5rem;
+      margin-bottom: .5rem; background: var(--surf);
+    }
+    .list-card-content { flex: 1; font-size: .9375rem; }
+    .list-card-actions { display: flex; gap: .5rem; flex-shrink: 0; }
+
+    /* ── Review summary ── */
+    .review-summary { display: grid; grid-template-columns: repeat(5,1fr); gap: .75rem; margin-bottom: 1.5rem; }
+    @media(max-width:500px){ .review-summary { grid-template-columns: repeat(3,1fr); } }
+    .review-stat {
+      text-align: center; background: var(--surf);
+      border: 1px solid var(--border); border-radius: .5rem; padding: 1rem .5rem;
+    }
+    .review-stat-value { font-size: 2rem; font-weight: 900; color: var(--p); line-height: 1; }
+    .review-stat-label { font-size: .75rem; color: var(--muted); margin-top: .3rem; }
+
+    /* ── Welcome ── */
+    .welcome-box   { text-align: center; padding: 2rem 0; }
+    .welcome-icon  { font-size: 4rem; margin-bottom: 1rem; }
+    .welcome-intro { font-size: 1.05rem; color: var(--muted); max-width: 500px; margin: 0 auto 1.75rem; }
+
+    /* ── Welcome checklist ── */
+    .wiz-time-badge {
+      display: inline-block; background: var(--s); color: #fff;
+      font-weight: 700; font-size: .9rem; border-radius: 999px;
+      padding: .35rem 1rem; margin: .75rem auto 1.5rem;
+    }
+    .needs-section  { text-align: left; margin-top: .25rem; }
+    .needs-grid     { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    @media(max-width:600px){ .needs-grid { grid-template-columns: 1fr; } }
+    .needs-group    { background: var(--surf); border: 1px solid var(--border); border-radius: .6rem; padding: .9rem 1rem; }
+    .needs-group-title { font-weight: 700; font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: var(--p); margin-bottom: .5rem; }
+    .needs-list     { list-style: none; padding: 0; margin: 0; }
+    .needs-list li  { padding: .2rem 0; font-size: .9rem; padding-left: 1.4rem; position: relative; }
+    .needs-list li::before { content: '✓'; position: absolute; left: 0; color: var(--ok); font-weight: 900; }
+    .needs-note     { background: rgba(0,57,116,.06); border: 1px solid rgba(0,57,116,.15); border-radius: .5rem; padding: .85rem 1rem; font-size: .875rem; margin-top: .75rem; }
+
+    /* ── Review skip-wizard checkbox ── */
+    .skip-check-wrap { display: flex; align-items: flex-start; gap: .75rem; background: var(--surf); border: 1px solid var(--border); border-radius: .5rem; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+    .skip-check-label { display: flex; align-items: center; gap: .5rem; cursor: pointer; font-weight: 700; font-size: .9375rem; white-space: nowrap; }
+    .skip-check-desc { font-size: .825rem; color: var(--muted); margin-top: .2rem; }
+
+    /* ── Modal ── */
+    .hidden { display: none !important; }
+    #edit-modal    { position: fixed; inset: 0; z-index: 1000; }
+    #modal-backdrop{ position: absolute; inset: 0; background: rgba(0,0,0,.45); }
+    #modal-panel   {
+      position: absolute; right: 0; top: 0; bottom: 0;
+      width: 100%; max-width: 480px;
+      background: var(--bg); display: flex; flex-direction: column;
+      box-shadow: -4px 0 24px rgba(0,0,0,.15);
+    }
+    #modal-header  {
+      padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
+    }
+    #modal-title  { font-size: 1.05rem; font-weight: 700; }
+    #modal-body   { flex: 1; overflow-y: auto; padding: 1.5rem; }
+    #modal-footer {
+      padding: .875rem 1.5rem; border-top: 1px solid var(--border);
+      display: flex; gap: .75rem; justify-content: flex-end; flex-shrink: 0;
+    }
+    .modal-close-btn {
+      background: none; border: 1px solid var(--border); border-radius: .375rem;
+      width: 32px; height: 32px; cursor: pointer; font-size: 1.15rem;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-family: inherit; transition: background .12s;
+    }
+    .modal-close-btn:hover { background: var(--surf); }
+  </style>
+  <script>
+    if (localStorage.getItem('darkMode') === 'true' ||
+        (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      // Wizard is intentionally light-mode only (editing tool, needs accurate color preview)
+    }
+  </script>
+</head>
+<body>
+
+<div id="wizard-app">
+
+  <!-- ── Header ── -->
+  <div id="wizard-header">
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="wizard-brand">&#x1F916; PitCrew Setup Wizard</div>
+        <a href="{{ '/' | relative_url }}" class="return-link">&#x2190; Return to site</a>
+      </div>
+      <div class="progress-meta">
+        <span id="step-label">Step 1 of 12</span>
+        <span id="step-title-label">Welcome</span>
+      </div>
+      <div class="progress-bar"><div id="progress-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- ── Content ── -->
+  <div id="wizard-main">
+    <div id="wizard-content"><!-- rendered by wizard.js --></div>
+  </div>
+
+  <!-- ── Footer nav ── -->
+  <div id="wizard-footer">
+    <div class="footer-inner">
+      <button id="btn-prev" class="btn btn-outline" style="display:none">&#x2190; Back</button>
+      <div style="flex:1"></div>
+      <button id="btn-save" class="btn btn-outline" style="display:none;font-size:.875rem">&#x1F4BE; Save Progress</button>
+      <button id="btn-skip">Skip wizard</button>
+      <button id="btn-next" class="btn btn-primary">Get Started &#x2192;</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── Edit Modal ── -->
+<div id="edit-modal" class="hidden">
+  <div id="modal-backdrop"></div>
+  <div id="modal-panel">
+    <div id="modal-header">
+      <span id="modal-title">Edit</span>
+      <button id="modal-close" class="modal-close-btn" title="Close">&times;</button>
+    </div>
+    <div id="modal-body"></div>
+    <div id="modal-footer">
+      <button id="modal-cancel" class="btn btn-outline">Cancel</button>
+      <button id="modal-save"   class="btn btn-primary">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Jekyll data for wizard.js ── -->
+<script>
+window.WIZARD_DATA = {
+  config: {
+    title:       {{ site.title | jsonify }},
+    description: {{ site.description | jsonify }},
+    site:        {{ site.site | jsonify }},
+    theme:       {{ site.theme | jsonify }},
+    features:    {{ site.features | jsonify }},
+    navigation:  {{ site.navigation | jsonify }},
+    socials:     {{ site.socials | jsonify }},
+    fundraising: {{ site.fundraising | jsonify }}
+  },
+  team:     {{ site.data.team     | jsonify }},
+  mentors:  {{ site.data.mentors  | jsonify }},
+  sponsors: {{ site.data.sponsors | jsonify }},
+  awards:   {{ site.data.awards   | jsonify }},
+  events:   {{ site.data.events   | jsonify }}
+};
+</script>
+
+<!-- JSZip for zip generation (CDN, no build step needed) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Wizard logic -->
+<script src="{{ '/assets/js/wizard.js' | relative_url }}"></script>
+
+</body>
+</html>

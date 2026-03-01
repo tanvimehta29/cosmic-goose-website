@@ -34,6 +34,9 @@ theme:
     sponsor_bronze: "#92400e"
   dark_mode: true
 
+# Startup wizard — set to false after completing initial setup
+startup_wizard: true
+
 # Features toggle
 features:
   blog: true
