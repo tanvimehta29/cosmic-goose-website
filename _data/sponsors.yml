@@ -1,55 +1,25 @@
-- name: Brain Eating Machines
-  tier: platinum
-  logo: /assets/images/placeholder.svg
-  url: https://braineatingmachines.com
+- name: "Gene Haas Foundation"
+  tier: "platinum"
+  logo: "/assets/images/placeholder.svg"
+  url: "https://example.com"
 
-- name: Precision Engineering Co
-  tier: platinum
-  logo: /assets/images/placeholder.svg
-  url: https://example.com
+- name: "Chipotle - Mexican Grill"
+  tier: "platinum"
+  logo: "/assets/images/placeholder.svg"
+  url: "https://example.com"
 
-- name: Riverside Community Bank
-  tier: gold
-  logo: /assets/images/placeholder.svg
-  url: https://example.com
+- name: "FRC Tees"
+  tier: "platinum"
+  url: "https://example.com"
 
-- name: BuildRight Hardware
-  tier: gold
-  logo: /assets/images/placeholder.svg
-  url: https://example.com
+- name: "Konica Minolta"
+  tier: "platinum"
+  url: "https://example.com"
 
-- name: Digital Solutions LLC
-  tier: gold
-  logo: /assets/images/placeholder.svg
-  url: https://example.com
+- name: "Polymaker"
+  tier: "platinum"
+  url: ""
 
-- name: Metro Auto Parts
-  tier: silver
-  logo: /assets/images/placeholder.svg
-  url: https://example.com
-
-- name: Sunshine Printing
-  tier: silver
-  logo: /assets/images/placeholder.svg
-  url: https://example.com
-
-- name: Pete's Pizza Palace
-  tier: silver
-  logo: /assets/images/placeholder.svg
-  url: https://example.com
-
-- name: Anderson Family Foundation
-  tier: bronze
-  url: https://example.com
-
-- name: Lakeside Dental
-  tier: bronze
-  url: https://example.com
-
-- name: Green Thumb Landscaping
-  tier: bronze
-  url: https://example.com
-
-- name: Main Street Bakery
-  tier: bronze
-  url: https://example.com
+- name: "CLY by Matthew Photography"
+  tier: "platinum"
+  url: ""

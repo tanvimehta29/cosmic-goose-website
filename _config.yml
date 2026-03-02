@@ -1,28 +1,27 @@
 # Site settings
-title: "PitCrew Robotics"
-description: "https://github.com/braineatingmachines/pitcrew"
+title: "Cosmic Goose"
+description: "HI! We're 8902 Cosmic Goose, a FTC team from Glen Rock, NJ. "
 url: ""
 baseurl: ""
 
 # Team configuration
 site:
-  team_name: "PitCrew"
-  team_number: "271828"
-  program: "FTC"  # FTC or FRC
+  team_name: "Cosmic Goose"
+  team_number: "8902"
+  program: "FTC"
   current_season: "2025-2026"
   logo: "/assets/images/placeholder.svg"
-  # hero_image: "/assets/images/hero.jpg"  # Optional: replaces the hero gradient with a photo
 
-# Theme configuration - Official FTC Colors
-# Edit colors here. Changes take effect after restarting Jekyll (no CSS rebuild needed).
+# Theme configuration
+# Edit colors here. Changes take effect after restarting Jekyll.
 theme:
   colors:
     # Brand colors
-    primary: "#003974"              # Deep Blue
-    primary_highlight: "#002855"    # Darker blue (hover states, gradient end)
-    primary_darkest: "#001a3d"      # Very dark navy (hero gradient end)
-    secondary: "#F57E25"            # FIRST Orange (brand color)
-    secondary_highlight: "#d96a1f"  # Darker orange (hover states)
+    primary: "#7400b0"
+    primary_highlight: "#550080"
+    primary_darkest: "#220033"
+    secondary: "#c6a0f3"
+    secondary_highlight: "#aa72ee"
     # Semantic colors
     success: "#28a745"
     info: "#17a2b8"
@@ -33,17 +32,14 @@ theme:
     sponsor_gold: "#eab308"
     sponsor_silver: "#d1d5db"
     sponsor_bronze: "#92400e"
-  dark_mode: true
-
-# Startup wizard — set to false after completing initial setup
-startup_wizard: true
+  dark_mode: false
 
 # Features toggle
 features:
   blog: true
   docs: true
   cad_viewer: true
-  circuit_viewer: true
+  circuit_viewer: false
   code_links: true
   data_visualizations: true
   alumni_auto_archive: true
@@ -52,34 +48,37 @@ features:
 
 # Navigation
 navigation:
-  - title: Home
-    url: /
-  - title: About
-    url: /about/
-  - title: Season
-    url: /season/
-  - title: Awards
-    url: /awards/
-  - title: Sponsors
-    url: /sponsors/
-  - title: Docs
-    url: /docs/
-  - title: News
-    url: /news/
+  - title: "Home"
+    url: "/"
+  - title: "About"
+    url: "/about/"
+  - title: "Season"
+    url: "/season/"
+  - title: "Awards"
+    url: "/awards/"
+  - title: "Sponsors"
+    url: "/sponsors/"
+  - title: "News"
+    url: "/news/"
+  - title: "Log"
+    url: "/log/"
 
 # Social links
 socials:
-  instagram: "https://instagram.com/teamrobotics"
-  github: "https://github.com/teamrobotics"
-  youtube: "https://youtube.com/@teamrobotics"
-  twitter: "https://twitter.com/teamrobotics"
-  email: "team@example.com"
+  instagram: "https://www.instagram.com/cosmicgoose8902?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+  github: ""
+  youtube: ""
+  twitter: ""
+  email: ""
 
 # Fundraising/Donations
 fundraising:
-  enabled: false
+  enabled: true
   url: ""
   text: "Support Our Team"
+
+# Startup wizard — set to false after initial setup
+startup_wizard: false
 
 # Collections
 collections:
@@ -139,8 +138,6 @@ exclude:
   - package-lock.json
   - tailwind.config.js
   - README.md
-  - SPEC.md
-  - CLAUDE.md
   - scripts
   - "*.py"
   - requirements.txt

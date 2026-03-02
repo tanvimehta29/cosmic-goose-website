@@ -1,42 +1,115 @@
-- name: Season Kickoff Watch Party
-  date: 2026-01-04
-  location: School Cafeteria
-  type: event
-  description: Join us to watch the official game reveal and start planning our strategy for the season!
-  url:
+- name: "Season Kickoff Watch Party"
+  date: 2025-09-06
+  location: "Glen Rock High School"
+  type: "event"
+  description: "The team hosted an official game reveal watch party so we could start planning our strategy for the season and meet new members!"
+  url: 
 
-- name: League Meet 1 - Northern Qualifier
-  date: 2026-01-18
-  location: Lincoln High School
-  type: competition
-  description: Our first league meet of the season. Time to test our robot against other teams!
+- name: "Robocon"
+  date: 2025-09-27
+  location: "Bridgewater Mall"
+  type: "outreach"
+  description: "- Attended RoboCon NJ at Bridgewater Commons Mall to promote STEM and robotics
+- Worked with FTC and FRC teams to expose the public to FIRST
+- Showcased robot and DECODE
+- Answered questions about FIRST, sparking interest in joining the FIRST community
+- Reached approximately 1,000 people"
+  url: 
 
-- name: STEM Night at Maple Elementary
-  date: 2026-01-25
-  location: Maple Elementary School
-  type: outreach
-  description: Robot demonstration and hands-on activities for elementary students.
+- name: "Gotham FC School Spirit Match"
+  date: 2025-10-05
+  location: "Sports Illustrated Stadium"
+  type: "outreach"
+  description: "- Worked with professional women’s soccer team Gotham FC
+- Presented robotics team at their School Spirit Match
+- Interacted with fans
+- Allowed kids to drive the robot and informed people about our program
+- Exposed 9,752 people to FIRST"
+  url: 
 
-- name: League Meet 2 - Central Qualifier
-  date: 2026-02-01
-  location: Jefferson Community Center
-  type: competition
-  description: Second league qualifying meet. Aiming for top 10 to secure championship spot.
+- name: "Beijing Academy Visit Presentation"
+  date: 2025-10-07
+  location: "Glen Rock High School"
+  type: "outreach"
+  description: "- Chinese exchange students came to our school
+- Showed Beijing Academy students and faculty our makerspace
+- Introduced what FIRST is and DECODE challenge
+- Walked them through how our robot works
+- Impacted 20 people"
+  url: 
 
-- name: Sponsor Appreciation Night
-  date: 2026-02-08
-  location: School Robotics Lab
-  type: event
-  description: Special event to thank our sponsors and showcase our progress this season.
+- name: "NJ Devils STEM Night"
+  date: 2025-10-18
+  location: "Prudential Center"
+  type: "outreach"
+  description: "- Returned to the Prudential Center for a New Jersey Devils game
+- Interacted with fans and let them drive our robot
+- Explained to people what we do and the Decode challenge
+- Made custom 3D-printed keychains for observers
+- 16,514 people reached"
+  url: 
 
-- name: League Championship
-  date: 2026-02-22
-  location: City Convention Center
-  type: competition
-  description: Top teams from our league compete for advancement to state championship.
+- name: "Waldwick Warriors FLL Team"
+  date: 2025-10-22
+  location: "Glen Rock High School"
+  type: "outreach"
+  description: "- Partnered with Waldwick Warriors FLL to help out with their program
+- Showed our robot and explained DECODE challenge
+- Answered questions about program and robot
+- Showcased a practice match
+- Reached 30 people"
+  url: 
 
-- name: State Championship
-  date: 2026-03-15
-  location: State Fairgrounds
-  type: competition
-  description: The biggest competition of the season! Competing for a spot at Worlds.
+- name: "BCC Manufacturing Visit "
+  date: 2025-11-14
+  location: "Bergen Community College"
+  type: "outreach"
+  description: "- Toured makerspace and manufacturing facilities
+- Learned how to use Autodesk Maya
+- Connected with Professor Matt King
+- Saw engineering students’ projects"
+  url: 
+
+- name: "Galaxy Goslings STEM Camp 1"
+  date: 2025-12-06
+  location: "Glen Rock Public Library"
+  type: "outreach"
+  description: "- Partnered with the library to run Galaxy Goslings, a STEM workshop for grades 1–6 since 2018
+- Taught children engineering basics through hands-on activities like building robot hands and making DIY catapults"
+  url: 
+
+- name: "Galaxy Goslings STEM Camp 2"
+  date: 2025-12-13
+  location: "Glen Rock Public Library"
+  type: "outreach"
+  description: "- Partnered with the library to run Galaxy Goslings, a STEM workshop for grades 1–6 since 2018
+- Taught children engineering basics through hands-on activities like building robot hands and making DIY catapults"
+  url: 
+
+- name: "Rutgers Makerspace Visit "
+  date: 2025-12-11
+  location: "Rutgers University Manufacturing Labs "
+  type: "outreach"
+  description: "- Toured NJ Advanced Manufacturing Institute at Rutgers University
+- Talked about additive and subtractive types of manufacturing
+- Two PhD students led the session, demonstrated manufacturing machinery, and discussed pathways to pursue engineering in college"
+  url: 
+
+- name: "Open Nest"
+  date: 2025-12-12
+  location: "Glen Rock High School"
+  type: "outreach"
+  description: "- Invited teams RoboRebels and Robo Raptors for practice  scrimmages
+- Formed stronger bonds with teams
+- Discussed strategy and compared mechanical and programming concepts
+- Helped us prepare for upcoming competition"
+  url: 
+
+- name: "P3-1 Northern League Meet"
+  date: 2026-01-03
+  location: "Dwight-Morrow Academies of Englewood"
+  type: "competition"
+  description: "4th place (quals)
+W-L-T: 4-1-0
+3.60 RP · 37.40 npOPR · 65.00 npAVG"
+  url: 
