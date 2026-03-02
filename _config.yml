@@ -10,7 +10,8 @@ site:
   team_number: "8902"
   program: "FTC"
   current_season: "2025-2026"
-  logo: "/assets/images/placeholder.svg"
+  logo: "/assets/images/goose-logo.png"
+  hero_image: "/assets/images/mainpage_bg.png"
 
 # Theme configuration
 # Edit colors here. Changes take effect after restarting Jekyll.
