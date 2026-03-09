@@ -19,13 +19,19 @@ We finished the qualifying rounds with a **4-1 record**, placing us 3rd overall 
 
 | Match | Alliance Score | Opponent Score | Result |
 |-------|---------------|----------------|--------|
-| Qual 1 | 142 | 98 | Win |
-| Qual 2 | 156 | 134 | Win |
-| Qual 3 | 128 | 145 | Loss |
-| Qual 4 | 167 | 112 | Win |
-| Qual 5 | 183 | 141 | Win |
+| Qual 5 | 195 | 63 | Win |
+| Qual 7 | 44 | 133 | Loss |
+| Qual 12 | 60 | 122 | Loss |
+| Qual 16 | 72 | 28 | Win |
+| Qual 22 | 89 | 58 | Win |
 
-In eliminations, we were picked by the 2nd seed alliance. We won our semifinal match decisively (201-178 - our highest score of the day!), but fell short in the finals against a strong alliance.
+P2-3 Northern League Meet
+November 22, 2025
+Eric Smith Middle School, Ramsey, NJ, USA
+6th place (quals)
+W-L-T: 3-2-0
+2.80 RP · 51.70 npOPR · 72.00 npAVG
+
 
 ## Phoenix in Action
 
